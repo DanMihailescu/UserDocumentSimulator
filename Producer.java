@@ -1,26 +1,45 @@
-import java.util.ArrayList;
+import java.util.*;
+/**
+ * A producer is a kind of user that creates new documents matching its taste, and
+ * "likes" documents that match its taste.
+ * 
+ * @author babak
+ * @version assign2
+ */
+public class Producer extends User {
 
-public class Producer extends User
-{
-  private ArrayList<Document> ds;
-  
-  public Producer(Simulation sim, String s) {
-    super(sim, s);
-    ds = new ArrayList<Document>();
-  }
-  
-  public void act() {
-    Document d = new Document(taste);
-    sim.addDocument(d);
-    ds = sim.search();
-    super.evaluate(ds);
-  }
-  
-  @Override
-  public String toString() {
-    String s = "Producer: " + super.getId() + " is into: " + super.getTaste() + " and likes: \n";
-    for (Document d: super.likes)
-      s = s + d.toString() + "\n";
-    return s;
-  }
+    /**
+     * initialize this producer as per the supplied parameters
+     */
+    public Producer(Simulation sim, String taste, RankingStrategy strategy) {
+        super(sim, taste, strategy);
+    }
+
+        
+    /** 
+     * The producer's action during one simulation step, consists, for now, of:
+     * 1- creating a document that matches this producer's taste, and adding it to the simulation
+     * 2- searching the simulation for the top documents
+     * 3- evaluating the returned documents: for now, "like" a document if its tag matches the taste
+     */
+    public void act() {
+        Document d = new Document(this.getTaste());
+        sim.addDocument(d);
+        super.act();        
+    }
+    
+    /**
+     * return a string representation of this producer. the format to follow is 
+     * the same as for user, except it starts with the word "producer":
+     * 
+     * "producer: <id> is into: <taste> and currently likes: <doc1>,<doc2>,etc."
+     */
+    public String toString() {
+        return "producer: " + super.toString(); 
+    }
 }
+
+
+
+
+
