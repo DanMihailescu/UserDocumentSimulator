@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Simulation()
+comment1.params=u
+comment1.target=void\ addUser(User)
+comment2.params=d
+comment2.target=void\ addDocument(Document)
+comment3.params=
+comment3.target=java.util.ArrayList\ search()
+comment4.params=
+comment4.target=void\ run()
+numComments=5

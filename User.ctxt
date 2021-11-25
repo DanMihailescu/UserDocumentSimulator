@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=sim\ taste
+comment0.target=User(Simulation,\ java.lang.String)
+comment1.params=
+comment1.target=int\ getId()
+comment2.params=
+comment2.target=java.lang.String\ getTaste()
+comment3.params=d
+comment3.target=void\ like(Document)
+comment4.params=d
+comment4.target=boolean\ likes(Document)
+comment5.params=
+comment5.target=void\ act()
+numComments=6
