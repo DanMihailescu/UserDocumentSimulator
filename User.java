@@ -8,23 +8,23 @@ import java.util.*;
  * @author babak
  * @version assign2
  */
-public class User {
+public abstract class User {
     private static int ID_COUNT = 0;    
     private int id;
     protected String taste;
     protected Simulation sim;
     private ArrayList<Document> likes;
-    protected RankingStrategy strategy;
+    protected int payoff; 
 
     /** 
      * create a peer with the supplied simulation and taste. Set a unique identifier for this
      * document by using and incrementing the ID_COUNT.
      * Also create an empty list of "liked" documents. 
      */
-    public User(Simulation sim, String s, RankingStrategy s1)  {
+    public User(Simulation sim, String s)  {
         this.sim = sim;
         this.id = ID_COUNT++;
-        strategy = s1;
+        payoff = 0;
         taste = s;
         likes = new ArrayList<Document>();
     }
@@ -53,6 +53,7 @@ public class User {
      */
     public void like(Document d) {
         likes.add(d); //not worrying about duplicates yet
+        d.likedBy(this);
     }
     
     /** 
@@ -60,20 +61,21 @@ public class User {
      * 1- searching the simulation for the top documents
      * 2- evaluation the documents: for now, "like" the document if its tag matches the taste
      */
-    public void act() {
-        List<Document> docs = sim.search();
-        evaluate(docs);
-    }
+    public abstract void act();
         
     
     private List<Document> search() {
         return sim.search();
     }
     
-    private void evaluate(List<Document> docs) {
-        for (Document doc : docs) {
-            if (doc.getTag().equals(taste)) like(doc);
-        }
+    public abstract void evaluate(List<Document> docs);
+    
+    public int getPayoff(){
+        return payoff;
+    }
+    
+    public void setPayoff(int p){
+        this.payoff = p;
     }
     
     /**

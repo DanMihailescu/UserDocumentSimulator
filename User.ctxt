@@ -1,10 +1,13 @@
 #BlueJ class context
-comment0.params=sim\ s\ s1
-comment0.target=User(Simulation,\ java.lang.String,\ RankingStrategy)
+comment0.params=sim\ s
+comment0.target=User(Simulation,\ java.lang.String)
 comment0.text=\ \n\ create\ a\ peer\ with\ the\ supplied\ simulation\ and\ taste.\ Set\ a\ unique\ identifier\ for\ this\n\ document\ by\ using\ and\ incrementing\ the\ ID_COUNT.\n\ Also\ create\ an\ empty\ list\ of\ "liked"\ documents.\ \n
 comment1.params=
 comment1.target=int\ getId()
 comment1.text=return\ this\ user's\ id
+comment10.params=
+comment10.target=java.lang.String\ toString()
+comment10.text=\n\ return\ a\ string\ representation\ of\ this\ user.\ the\ format\ to\ follow\ is\:\n\ "<id>\ is\ into\:\ <taste>\ and\ currently\ likes\:\ <doc1>,<doc2>,etc."\n
 comment2.params=
 comment2.target=java.lang.String\ getTaste()
 comment2.text=return\ this\ user's\ taste
@@ -22,6 +25,7 @@ comment6.target=java.util.List\ search()
 comment7.params=docs
 comment7.target=void\ evaluate(java.util.List)
 comment8.params=
-comment8.target=java.lang.String\ toString()
-comment8.text=\n\ return\ a\ string\ representation\ of\ this\ user.\ the\ format\ to\ follow\ is\:\n\ "<id>\ is\ into\:\ <taste>\ and\ currently\ likes\:\ <doc1>,<doc2>,etc."\n
-numComments=9
+comment8.target=int\ getPayoff()
+comment9.params=p
+comment9.target=void\ setPayoff(int)
+numComments=11

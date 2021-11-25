@@ -1,4 +1,6 @@
 #BlueJ class context
 comment0.params=
 comment0.target=DocumentPopularityRankingStrategy()
-numComments=1
+comment1.params=sim
+comment1.target=java.util.List\ rank(Simulation)
+numComments=2

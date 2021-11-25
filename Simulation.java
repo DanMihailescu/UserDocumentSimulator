@@ -19,21 +19,21 @@ public class Simulation {
      * Initialize the simulation with an empty list of users and documents
      */
     public Simulation() {
-        this(0,0);
+        this(0,0,null);
     }
     
     /**
      * Initialize the simulation with nbUsers and nbDocs, each given a random tag/taste upon creation.
      * Users can be Consumer or Producer; the choice between the two should also be made at random.
      */
-    public Simulation(int nbUsers, int nbDocs) {
+    public Simulation(int nbUsers, int nbDocs, RankingStrategy rank) {
         users = new ArrayList<User>();
         documents = new ArrayList<Document>();
         Random r = new Random();
         for (int i = 0; i < nbUsers; i++) {
             User u;
-            if (r.nextBoolean()) u = new Consumer(this, TAGS[r.nextInt(TAGS.length)], new DocumentPopularityRankingStrategy());
-            else u = new Producer(this, TAGS[r.nextInt(TAGS.length)], new RandomRankingStrategy());
+            if (r.nextBoolean()) u = new Consumer(this, TAGS[r.nextInt(TAGS.length)], rank);
+            else u = new Producer(this, TAGS[r.nextInt(TAGS.length)]);
             addUser(u);
         }
         for (int i = 0; i < nbDocs; i++) {
@@ -90,13 +90,30 @@ public class Simulation {
       return documents;
     }
     
+    public void run(int numOfSteps) {
+        for (int i = 0; i <= (numOfSteps-1); i++)
+        {
+            step();
+        }
+    }
+    
+    public void step(){
+        Random r = new Random();
+        users.get(r.nextInt(users.size())).act();
+        System.out.println(this);
+    }
+    
     /**
      * create a simulation, and run it
      */
     public static void main(String[] args) {
+        RankingStrategy r = null;
+        if(args[0] == "random")  r = new RandomRankingStrategy();
+        else if(args[0] == "docpop")  r = new DocumentPopularityRankingStrategy();
+        else System.out.println("Not valid strategy.");
         
-        Simulation sim = new Simulation (3, 4);
-        sim.run();
+        Simulation sim = new Simulation (3, 4, r);
+        sim.run(5);
     }
 
 }

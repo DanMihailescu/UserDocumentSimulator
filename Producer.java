@@ -11,8 +11,8 @@ public class Producer extends User {
     /**
      * initialize this producer as per the supplied parameters
      */
-    public Producer(Simulation sim, String taste, RankingStrategy strategy) {
-        super(sim, taste, strategy);
+    public Producer(Simulation sim, String taste) {
+        super(sim, taste);
     }
 
         
@@ -25,7 +25,7 @@ public class Producer extends User {
     public void act() {
         Document d = new Document(this.getTaste());
         sim.addDocument(d);
-        super.act();        
+        super.setPayoff(super.payoff--);        
     }
     
     /**
@@ -37,6 +37,8 @@ public class Producer extends User {
     public String toString() {
         return "producer: " + super.toString(); 
     }
+    
+    public void evaluate(List<Document> docs) {}
 }
 
 
