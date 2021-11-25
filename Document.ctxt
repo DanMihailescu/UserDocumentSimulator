@@ -1,8 +1,13 @@
 #BlueJ class context
-comment0.params=tag
+comment0.params=t
 comment0.target=Document(java.lang.String)
+comment0.text=create\ a\ document\ with\ the\ supplied\ tag.\ Set\ a\ unique\ id\ by\ using\ an\ incrementing\ the\ ID_COUNT
 comment1.params=
 comment1.target=int\ getId()
+comment1.text=return\ this\ document's\ id
 comment2.params=
 comment2.target=java.lang.String\ getTag()
-numComments=3
+comment2.text=return\ this\ document's\ tag
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4

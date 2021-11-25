@@ -1,12 +1,21 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Simulation()
+comment0.params=nbUsers\ nbDocs
+comment0.target=Simulation(int,\ int)
+comment0.text=\n\ Initialize\ the\ simulation\ with\ lists\ of\ users\ and\ documents\n
 comment1.params=u
 comment1.target=void\ addUser(User)
+comment1.text=\n\ add\ the\ supplied\ user\ to\ the\ list\ of\ users\n
 comment2.params=d
 comment2.target=void\ addDocument(Document)
+comment2.text=\n\ add\ the\ supplied\ document\ to\ the\ list\ of\ documents\n
 comment3.params=
 comment3.target=java.util.ArrayList\ search()
+comment3.text=\ \n\ return\ top\ documents\ according\ to\ some\ strategy.\ \n\ For\ now\ just\ return\ them\ all\!\ \n
 comment4.params=
 comment4.target=void\ run()
-numComments=5
+comment4.text=\ \n\ A\ simulation\ run\ consists\ of\:\n\ 1-\ pick\ a\ user\ (for\ now\ just\ pick\ them\ in\ order\ from\ the\ list)\n\ 2-\ get\ the\ user\ to\ act\n
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment6.params=args
+comment6.target=void\ main(java.lang.String[])
+numComments=7

@@ -1,69 +1,69 @@
-import java.util.ArrayList;
+import java.util.*;
+
 /**
- * A user is created with an id, a taste, and documents they like.
- * The user is also asked by the simulation to "act", which means 
- * it searchs for if the document's tag matches the user's taste 
- * the user will add it to the Array List of Documents, likes.
+ * A user has an id, a taste, and keeps track of the documents it "likes".
+ * Furthermore, a user is asked by the simulation to "act", which means for now 
+ * to search for documents and to evaluate them: if the document's tag matches the user's taste
+ * the user will "like" it, i.e., adds it to its list of liked documents.
  * 
- * Dan Mihailescu
- * October 12th, 2015; V1.0
+ * @Dan Mihailescu
+ * @Assignment 2
  */
-public class User
-{
-    //Instance variables
-    private static int ID_COUNT = 1;
+public class User {
+    private static int ID_COUNT = 0;
     private int id;
-    private String taste;
-    private Simulation sim;
-    private ArrayList<Document> likes;
-    
-    // Creates a constructor with a tag and a id, then incraments the id_count
-    public User(Simulation sim, String taste)
-    {
+    protected String taste;
+    protected Simulation sim;
+    public ArrayList<Document> likes;
+
+    /** 
+     * create a peer with the supplied simulation and taste. Set a unique identifier for this
+     * document by using and incrementing the ID_COUNT.
+     * Also create an empty list of "liked" documents. 
+     */
+    public User(Simulation sim, String s) {
         this.sim = sim;
-        this.taste = taste;
-        this.id = ID_COUNT;
-        ID_COUNT++;
-        this.likes = new ArrayList<Document>();
+        this.id = ID_COUNT++;
+        taste = s;
+        likes = new ArrayList<Document>();
     }
-    
-    // Used in order to determine the user ID
-    public int getId()
-    {
+
+    /** return this user's id */
+    public int getId() {
         return id;
     }
     
-    // Used in order to determine the users taste
-    public String getTaste()
-    {
+    /** return this user's taste */
+    public String getTaste() {
         return taste;
     }
     
-    // Used to add a documents to the users likes
-    public void like(Document d)
-    {
-        likes.add(d);
+    /** to "like" a document means to add it to the list of liked documents */
+    public void like(Document d) {
+        likes.add(d); //not worrying about duplicates yet
     }
     
-    // Used to iterate through all the likes to determine if this document is liked
-    public boolean likes(Document d)
-    {
-        for (Document l : likes)
-        {
-            if (d.getId() == l.getId())
-                return true;
+    /** 
+     * return true if this user likes the supplied document
+     */
+    public boolean likes(Document d) {
+        return likes.contains(d); //Relies on equals() behaving as intended
+    }
+    
+    /** 
+     * The user's action during one simulation stpe, consists, for now, of:
+     * 1- searching the simulation for the top documents
+     * 2- evaluation the documents: for now, "like" the document if its tag matches the taste
+     */
+    public void act() {
+        ArrayList<Document> docs = sim.search();
+        evaluate(docs);
+    }
+      
+    
+    public void evaluate(ArrayList<Document> docs) {
+        for (Document doc : docs) {
+            if (doc.getTag().equals(taste)) like(doc);
         }
-        return false;
     }
-    
-    // Used to go through all documents; if thedocuments tag is the same as the users taste; documents is liked
-    public void act()
-    {
-        for (Document d : sim.search())
-        {
-            if (d.getTag() == this.taste)
-                likes.add(d);
-        }
-    }
-    
 }

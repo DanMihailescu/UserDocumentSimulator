@@ -1,34 +1,35 @@
+
 /**
- * This class is used to create a document with a tag and a ID, and if asked
- * to return the ID or tag.
+ * A document has an id and a "tag". This "tag" represents what the document is all about
+ * (for a music file, it could represent its genre), but it is not known to the user until 
+ * he/she gets to "evaluate" (e.g., download, read) it.
  * 
- * Dan Mihailescu
- * October 12th, 2015; V1.0
+ * @Dan Mihailescu
+ * @Assignment 2
  */
-public class Document
-{
-    // Instance variables
-    private static int ID_COUNT = 1;
+public class Document {
+    private static int ID_COUNT = 0;
     private int id;
     private String tag;
-    
-    // Creates a constructor with a tag and a id, then incraments the id_count
-    public Document(String tag)
-    {
-        this.tag = tag;
-        this.id = ID_COUNT;
-        ID_COUNT++;
+
+    /** create a document with the supplied tag. Set a unique id by using an incrementing the ID_COUNT */
+    public Document(String t) {
+        this.id = ID_COUNT++;
+        tag = t;
     }
-    
-    // Used in order to determine the document ID
-    public int getId()
-    {
+
+    /** return this document's id */
+    public int getId() {
         return id;
     }
     
-    // Used in order to determine the tag
-    public String getTag()
-    {
+    /** return this document's tag */
+    public String getTag() {
         return tag;
+    }
+    
+    @Override
+    public String toString() {
+      return "Document id: " + id + ". Tag: " + tag;
     }
 }
