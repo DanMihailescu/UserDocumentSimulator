@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=
+comment0.target=SimulationFrame()
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ SimulationFrame\n
+comment1.params=
+comment1.target=javax.swing.JTextField\ getusersfield()
+comment2.params=
+comment2.target=javax.swing.JTextField\ getdocsfield()
+comment3.params=
+comment3.target=javax.swing.JTextArea\ gettextarea()
+comment4.params=u\ randuser
+comment4.target=void\ output(java.util.List,\ User)
+numComments=5

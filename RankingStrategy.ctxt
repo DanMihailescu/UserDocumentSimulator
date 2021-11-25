@@ -1,4 +1,5 @@
 #BlueJ class context
 comment0.params=sim
 comment0.target=java.util.List\ rank(Simulation)
+comment0.text=\n\ @return\ the\ top\ k\ documents\ according\ to\ the\ ranking\ provided\ by\ the\ concrete\ strategy\n
 numComments=1

@@ -45,7 +45,7 @@ public class TestSim {
         simulati1.addUser(user1);
         simulati1.addDocument(document1);
         simulati1.addDocument(document2);
-        simulati1.run(15);
+        simulati1.run();
         assertTrue(user1.likes(document2));
         assertFalse(user1.likes(document1));
         
@@ -74,3 +74,9 @@ public class TestSim {
         assertFalse(list1.contains(document3));
     }
 }
+
+
+
+
+
+

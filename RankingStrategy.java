@@ -1,4 +1,14 @@
 import java.util.*;
+/**
+ * An interface for all search strategies
+ * 
+ * @author babak
+ * @version assign3
+ */
 public interface RankingStrategy {
-  public abstract List<Document> rank(Simulation sim);
+
+    /**
+     * @return the top k documents according to the ranking provided by the concrete strategy
+     */
+    public List<Document> rank(Simulation sim);
 }

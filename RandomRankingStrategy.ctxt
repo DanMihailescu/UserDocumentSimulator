@@ -1,6 +1,5 @@
 #BlueJ class context
-comment0.params=
-comment0.target=RandomRankingStrategy()
-comment1.params=sim
-comment1.target=java.util.List\ rank(Simulation)
-numComments=2
+comment0.params=sim
+comment0.target=java.util.List\ rank(Simulation)
+comment0.text=\n\ Simply\ shuffle\ the\ list\ and\ return\ the\ top\ K\n
+numComments=1

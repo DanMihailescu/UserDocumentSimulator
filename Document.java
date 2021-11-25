@@ -3,30 +3,33 @@ import java.util.*;
  * A document has an id and a "tag". This "tag" represents what the document is all about
  * (for a music file, it could represent its genre), but it is not known to the user until 
  * he/she gets to "evaluate" (e.g., download, read) it.
+ * Since assign3 it also keeps track of users that like it.
  * 
  * @author babak
- * @version assign2
+ * @version assign3
  */
 public class Document implements Comparable<Document>{
-    private static int ID_COUNT = 0;    
+    private static int ID_COUNT = 0;
     private int id;
     private String tag;
-    private ArrayList<User> liker;
-    protected Producer prod;
+    private List<User> likers;
+    private Producer producer;
 
     /** 
      * create a document with the supplied tag. Set a unique id by using an incrementing the ID_COUNT.
+     * and an empty list of users that like it (new in assign3)
      */
     public Document(String t) {
         this.id = ID_COUNT++;
         tag = t;
-        liker = new ArrayList<User>();
-        this.prod = null;
+        likers = new ArrayList<User>();
+        this.producer = null;
     }
     
-    public Document(String t, Producer p) {
+    public Document(String t, Producer p)
+    {
         this(t);
-        this.prod = p;
+        this.producer = p;
     }
 
     /** return this document's id */
@@ -39,29 +42,39 @@ public class Document implements Comparable<Document>{
         return tag;
     }
     
-    public void likedBy(User u){
-      liker.add(u);
+    /** 
+     * new in assign3: add the supplied user to the likers of this document
+     */
+    public void likedBy(User u) {
+        likers.add(u);
     }
     
+    /** @return the total number of likers for this document (new in assign3) */
     public int popularity() {
-      return liker.size();
+        return likers.size();
     }
-                                    
+    
+    
     /**
      * return a string representation of this doc. Follow the format below:
-     * <id, tag>
+     * id, tag
      */
     public String toString() {
         return "<" + id + "," + tag + ">";
     }
     
+    public void view()
+    {
+        User u = this.producer;
+        if (u != null){
+            u.setpayoff(u.payoff++);
+        }
+    }
+    
     public int compareTo(Document d){
-      return this.popularity() - (d.popularity());}
-      
-    public void view() {
-         User u = this.prod;
-         if (u != null)  this.prod.setPayoff(u.payoff++);
-     }
+        int popularity = (((Document) d).popularity());
+        return popularity - this.popularity();
+    }
 }
 
 

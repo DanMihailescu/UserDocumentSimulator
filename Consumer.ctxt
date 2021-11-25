@@ -1,12 +1,10 @@
 #BlueJ class context
 comment0.params=sim\ taste\ strategy
 comment0.target=Consumer(Simulation,\ java.lang.String,\ RankingStrategy)
-comment0.text=\n\ initialize\ this\ consumer\ as\ per\ the\ supplied\ parameters\n
+comment0.text=\n\ initialize\ this\ consumer\ as\ per\ the\ supplied\ parameters.\n
 comment1.params=
 comment1.target=java.lang.String\ toString()
-comment1.text=\n\ return\ a\ string\ representation\ of\ this\ consumer.\ the\ format\ to\ follow\ is\ \n\ the\ same\ as\ for\ user,\ except\ it\ starts\ with\ the\ word\ "consumer"\:\n\ \n\ "consumer\:\ <id>\ is\ into\:\ <taste>\ and\ currently\ likes\:\ <doc1>,<doc2>,etc."\n
-comment2.params=docs
-comment2.target=void\ evaluate(java.util.List)
-comment3.params=
-comment3.target=void\ act()
-numComments=4
+comment1.text=\n\ return\ a\ string\ representation\ of\ this\ consumer.\ the\ format\ to\ follow\ is\ \n\ the\ same\ as\ for\ user,\ except\ it\ starts\ with\ the\ word\ "consumer"\:\n\ \n\ "consumer\:\ id\ is\ into\:\ taste\ and\ currently\ likes\:\ doc1,doc2,etc."\n
+comment2.params=
+comment2.target=void\ act()
+numComments=3
